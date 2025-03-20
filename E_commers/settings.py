@@ -55,6 +55,8 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'E_commers.wsgi.application'
 
+AUTH_USER_MODEL='accounts.Account'
+
 # Database
 DATABASES = {
     'default': {
@@ -79,8 +81,9 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 STATIC_URL = '/static/'
+STATIC_ROOT=BASE_DIR /'static'
 STATICFILES_DIRS = [
-    BASE_DIR / "static",  # ✅ Ensures static files are properly referenced
+    "E-commers/static",  # ✅ Ensures static files are properly referenced
 ]
 
 # Media files (for user-uploaded content)
