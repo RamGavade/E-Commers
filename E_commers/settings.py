@@ -23,6 +23,7 @@ INSTALLED_APPS = [
     'E_commers',
     'category',
     'accounts',
+    'store',
 ]
 
 MIDDLEWARE = [
@@ -40,7 +41,7 @@ ROOT_URLCONF = 'E_commers.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / "templates"],  # Fixing template directory
+        'DIRS': [BASE_DIR / "E_commers/templates"],  # ✅ Ensures template directory is correct
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -55,7 +56,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'E_commers.wsgi.application'
 
-AUTH_USER_MODEL='accounts.Account'
+AUTH_USER_MODEL = 'accounts.Account'
 
 # Database
 DATABASES = {
@@ -81,9 +82,10 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 STATIC_URL = '/static/'
-STATIC_ROOT=BASE_DIR /'static'
+STATIC_ROOT = BASE_DIR / 'static'  # ✅ Corrected location for collected static files
+
 STATICFILES_DIRS = [
-    "E-commers/static",  # ✅ Ensures static files are properly referenced
+    BASE_DIR / "E_commers/static",
 ]
 
 # Media files (for user-uploaded content)
